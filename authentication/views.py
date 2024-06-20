@@ -1,7 +1,17 @@
-from rest_framework import response, status
+from rest_framework import response, status, permissions
 from rest_framework.generics import GenericAPIView
 from django.contrib.auth import authenticate
 from authentication.serializers import LoginSerializer, RegisterSerializer
+
+class AuthUserAPIView(GenericAPIView):
+        
+        permission_classes = (permissions.IsAuthenticated,)
+    
+        def get(self, request):
+            user = request.user
+            serializer = RegisterSerializer(user)
+            return response.Response({'user': serializer.data}, status=status.HTTP_200_OK)
+        
 
 class RegisterApiView(GenericAPIView):
 
