@@ -28,3 +28,4 @@ class AccountDetailAPIView(RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return Account.objects.filter(user=self.request.user)
+    
