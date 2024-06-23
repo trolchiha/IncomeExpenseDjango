@@ -3,8 +3,7 @@ from rest_framework.serializers import ModelSerializer
 from account.models import Account
 
 class AccountSerializer(ModelSerializer):
-    
+
     class Meta:
         model = Account
-        fields = ('name', 'currency', 'balance', )
-
+        fields = ('id', 'name', 'currency', 'balance', )

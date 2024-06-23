@@ -2,7 +2,7 @@ from django.urls import path
 from account import views
 
 urlpatterns = [
-    path('create', views.CreateAccountAPIView.as_view(), name='create-account'),
-    path('list', views.AccountListAPIView.as_view(), name='list-accounts'),
-    
+    path('', views.AccountAPIView.as_view(), name='accounts'),
+    path('<int:id>', views.AccountDetailAPIView.as_view(), name='account'),
+       
 ]
